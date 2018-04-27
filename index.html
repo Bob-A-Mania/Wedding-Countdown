@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>My Wedding Countdown</title>
+    <link rel="stylesheet" href="index.css">
+    <link href="https://fonts.googleapis.com/css?family=Playfair+Display" rel="stylesheet">
+  </head>
+  <body>
+    <p id="display"></p>
+    <p id="paragraph">Until My Wedding</p>
+
+    <script type="text/javascript">
+      //Set Wedding Date
+      var weddingDate = new Date("July 3, 2018 16:00:00").getTime();
+
+      //Function For Countdown
+      var x = setInterval(function(){
+
+      //Set Todays Date & Time
+      var today = new Date().getTime();
+
+      //Get Difference Between Wedding & Today
+      var timeToWedding = weddingDate - today;
+
+      //Time Conversions
+      var days = Math.floor(timeToWedding / (1000*60*60*24));
+      var hours = Math.floor((timeToWedding % (1000*60*60*24))/(1000*60*60));
+      var minutes = Math.floor((timeToWedding % (1000*60*60))/(1000*60));
+      var seconds = Math.floor((timeToWedding % (1000*60)) / 1000);
+
+      var display = document.getElementById("display").innerHTML =
+      days + "d " + hours + "h " + minutes + "m " + seconds + "s";  
+    },1000);
+    </script>
+  </body>
+</html>
